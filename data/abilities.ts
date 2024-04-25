@@ -3668,7 +3668,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
-				this.heal(target.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 10);
 			}
 		},
 		flags: {},
