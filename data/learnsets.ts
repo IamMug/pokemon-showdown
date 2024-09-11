@@ -39,7 +39,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			block: ["5S3"],
 			bodyslam: ["9M", "8M", "7V", "3T"],
 			bulletseed: ["9M", "8M", "4M", "3M"],
-			captivate: ["4M"],
+			moonblast: ["9M"],
 			celebrate: ["6S5"],
 			charm: ["9M", "8M", "7E", "6E", "5E", "4E", "3E"],
 			confide: ["7M", "6M"],
