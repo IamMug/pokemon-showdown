@@ -1,4 +1,4 @@
-/config/*
+/config/config.js
 !/config/formats.ts
 /logs/**/*
 /test/modlogs
