@@ -5001,7 +5001,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {breakable: 1},
-		name: "Blubbar Guard",
+		name: "Blubber Guard",
 		rating: 3.5,
 		num: 47,
 	},
