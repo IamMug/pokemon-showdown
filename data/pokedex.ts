@@ -4059,7 +4059,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		types: ["Psychic"],
 		gender: "N",
 		baseStats: {hp: 48, atk: 108, def: 48, spa: 108, spd: 48, spe: 108},
-		abilities: {0: "Levitate"},
+		abilities: {0: "Levitate", 1: "Technician"},
 		heightm: 0.5,
 		weightkg: 5,
 		color: "Black",
