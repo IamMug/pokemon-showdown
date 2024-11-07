@@ -40258,6 +40258,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			growl: ["8L1", "7L1", "6L1", "5L1", "4L1", "3L1"],
 			hail: ["8M", "7M", "6M", "5M", "4M", "3M"],
 			headbutt: ["4T"],
+			hurricane: ["8M"],
 			heavyslam: ["8M", "8L21", "7L1", "6L1", "5L70"],
 			hiddenpower: ["7M", "6M", "5M", "4M", "3M"],
 			hydropump: ["8M", "8L49", "7L58", "6L58", "5L62", "4L62", "3L59", "3S0"],
