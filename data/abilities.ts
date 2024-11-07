@@ -1769,14 +1769,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 139,
 	},
 	healer: {
-		onResidualOrder: 5,
-		onResidualSubOrder: 3,
-		onResidual(pokemon) {
-			for (const allyActive of pokemon.adjacentAllies()) {
-				if (allyActive.status && this.randomChance(3, 10)) {
-					this.add('-activate', pokemon, 'ability: Healer');
-					allyActive.cureStatus();
-				}
+		onTryHealPriority: 1,
+		onTryHeal(damage, target, source, effect) {
+			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
+			if (heals.includes(effect.id)) {
+				return this.chainModify([5324, 4096]);
 			}
 		},
 		flags: {},
@@ -1987,14 +1984,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 246,
 	},
 	illuminate: {
-		onTryBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			if (boost.accuracy && boost.accuracy < 0) {
-				delete boost.accuracy;
-				if (!(effect as ActiveMove).secondaries) {
-					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Illuminate", "[of] " + target);
-				}
-			}
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('compoundeyes - enhancing accuracy');
+			return this.chainModify([5325, 4096]);
 		},
 		onModifyMove(move) {
 			move.ignoreEvasion = true;
@@ -3240,6 +3234,23 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 0,
 		num: 57,
 	},
+	psychosis: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(spatk) {
+			return this.chainModify(1.1);
+		},
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Dark'] = true;
+			}
+		},	
+		flags: {},
+		name: "Psychosis",
+		rating: 5,
+		num: 1074,
+	},
 	poisonheal: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
@@ -3537,6 +3548,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 5,
 		num: 74,
 	},
+	heroic: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.chainModify(1.25);
+		},
+		flags: {},
+		name: "Heroic",
+		rating: 4,
+		num: 74,
+	},
 	purifyingsalt: {
 		onSetStatus(status, target, source, effect) {
 			if ((effect as Move)?.status) {
@@ -3681,7 +3702,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
-				this.heal(target.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 8);
 			}
 		},
 		flags: {},
@@ -3877,13 +3898,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 50,
 	},
 	sandforce: {
-		onBasePowerPriority: 21,
-		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('sandstorm')) {
-				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
-					this.debug('Sand Force boost');
-					return this.chainModify([5325, 4096]);
-				}
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (['sandstorm'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sandstorm' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 10, target, target);
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -4292,12 +4316,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		onModifyAccuracyPriority: -1,
-		onModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather(['hail', 'snow'])) {
-				this.debug('Snow Cloak - decreasing accuracy');
-				return this.chainModify([3277, 4096]);
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ice') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Snow Cloak');
+				}
+				return null;
 			}
 		},
 		flags: {breakable: 1},
@@ -4324,7 +4348,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-				this.damage(target.baseMaxhp / 8, target, target);
+				this.damage(target.baseMaxhp / 10, target, target);
 			}
 		},
 		flags: {},
