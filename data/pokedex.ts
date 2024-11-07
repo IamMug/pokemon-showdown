@@ -8191,7 +8191,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		name: "Lickilicky",
 		types: ["Normal"],
 		baseStats: {hp: 115, atk: 85, def: 95, spa: 80, spd: 95, spe: 50},
-		abilities: {0: "Own Tempo", 1: "Oblivious", H: "Cloud Nine"},
+		abilities: {0: "Unaware", 1: "Oblivious", H: "Cloud Nine"},
 		heightm: 1.7,
 		weightkg: 140,
 		color: "Pink",
