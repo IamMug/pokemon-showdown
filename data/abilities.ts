@@ -1289,10 +1289,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (attacker.status === 'brn' && move.category === 'Special') {
 				return this.chainModify(1.5);
 			},
-		     onDamagePriority: 1,
-    onDamage(damage, target, source, effect) {
-        if (effect.id === 'brn') {
-            return false;
+        onDamagePriority: 1,
+        onDamage(damage, target, source, effect) {
+            if (effect.id === 'brn') {
+                return false;
             }
         },
 		},
@@ -1361,15 +1361,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onAllyModifyAtkPriority: 3,
       onAllyModifyAtk(atk, pokemon) {
-            if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-                return this.chainModify(1.5);
-         }
+         if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+            return this.chainModify(1.5);
+			}
 		},
 		onAllyModifySpDPriority: 4,
       onAllyModifySpD(spd, pokemon) {
-         	if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-         		 return this.chainModify(1.5);
-         }
+         if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+            return this.chainModify(1.5);
+			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, breakable: 1},
 		name: "Flower Gift",
@@ -2463,10 +2463,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onImmunity(type, pokemon) {
 			if (type === 'frz') return false;
 		},
-		     onSourceModifyDamage(damage, source, target, move) {
+		onSourceModifyDamage(damage, source, target, move) {
          if (['Water', 'Ice'].includes(move.type)) {
-              return this.chainModify(1, 2);
-        }
+            return this.chainModify(1, 2);
+         }
       },
 		flags: {breakable: 1},
 		name: "Magma Armor",
@@ -3901,9 +3901,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 24,
 	},
 	runaway: {
-		        onImmunity(type) {
+        onImmunity(type) {
             if (type === 'trapping') return false;
-        },
+			},
 		flags: {},
 		name: "Run Away",
 		rating: 0,
@@ -5066,7 +5066,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onBasePower(basePower, attacker, defender, move) {
 			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
 				return this.chainModify(1.5);
-			}
+			},
+        onDamagePriority: 1,
+        onDamage(damage, target, source, effect) {
+            if (effect.id === 'psn' || effect.id === 'tox') {
+                return false;
+            }
+        },
 		},
 		        onDamagePriority: 1,
         onDamage(damage, target, source, effect) {
