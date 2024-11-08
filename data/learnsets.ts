@@ -28163,7 +28163,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	unown: {
 		learnset: {
 			hiddenpower: ["7M", "7L1", "7V", "6L1", "5L1", "4L1", "3L1"],
-			judgement: ["9M"],
+			judgment: ["9M"],
 		},
 		encounters: [
 			{generation: 2, level: 5},
