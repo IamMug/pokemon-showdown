@@ -5074,6 +5074,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
             }
         },
 		},
+		        onDamagePriority: 1,
+        onDamage(damage, target, source, effect) {
+            if (effect.id === 'psn' || effect.id === 'tox') {
+                return false;
+      	}
+      },
 		flags: {},
 		name: "Toxic Boost",
 		rating: 3,
