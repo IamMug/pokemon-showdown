@@ -1283,24 +1283,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: 49,
 	},
-	flareboost: {
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.status === 'brn' && move.category === 'Special') {
-				return this.chainModify(1.5);
-			},
-        onDamagePriority: 1,
-        onDamage(damage, target, source, effect) {
-            if (effect.id === 'brn') {
-                return false;
-            }
-        },
-		},
-		flags: {},
-		name: "Flare Boost",
-		rating: 2,
-		num: 138,
-	},
 	flashfire: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
@@ -3244,15 +3226,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 57,
 	},
 	psychosis: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(spatk) {
+		onModifySpAPriority: 5,
+		onModifySpA(spatk) {
 			return this.chainModify(1.1);
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Dark'] = true;
+				move.ignoreImmunity['Psychic'] = true;
 			}
 		},	
 		flags: {},
@@ -5062,24 +5044,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 181,
 	},
 	toxicboost: {
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
-				return this.chainModify(1.5);
-			},
-        onDamagePriority: 1,
-        onDamage(damage, target, source, effect) {
-            if (effect.id === 'psn' || effect.id === 'tox') {
-                return false;
+        onBasePowerPriority: 19,
+        onBasePower(basePower, attacker, defender, move) {
+            if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
+                return this.chainModify(1.5);
             }
         },
-		},
-		        onDamagePriority: 1,
-        onDamage(damage, target, source, effect) {
-            if (effect.id === 'psn' || effect.id === 'tox') {
-                return false;
-      	}
-      },
 		flags: {},
 		name: "Toxic Boost",
 		rating: 3,
