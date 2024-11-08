@@ -15862,14 +15862,16 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	rockwrecker: {
 		num: 439,
 		accuracy: 90,
-		basePower: 150,
+		basePower: 130,
 		category: "Physical",
 		name: "Rock Wrecker",
 		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		self: {
-			volatileStatus: 'mustrecharge',
+			boosts: {
+				atk: -2,
+			},
 		},
 		secondary: null,
 		target: "normal",
