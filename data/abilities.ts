@@ -4997,7 +4997,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Blubber Guard",
 		rating: 3.5,
-		num: 47,
+		num: 2247,
 	},
 	tintedlens: {
 		onModifyDamage(damage, source, target, move) {
@@ -5642,14 +5642,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		isNonstandard: "CAP",
 		flags: {breakable: 1},
 		name: "Mountaineer",
 		rating: 3,
 		num: -2,
 	},
 	rebound: {
-		isNonstandard: "CAP",
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
@@ -5682,7 +5680,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -3,
 	},
 	persistent: {
-		isNonstandard: "CAP",
 		// implemented in the corresponding move
 		flags: {},
 		name: "Persistent",
