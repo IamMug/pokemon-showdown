@@ -4602,7 +4602,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		num: 235,
 		name: "Smeargle",
 		types: ["Normal"],
-		baseStats: {hp: 55, atk: 20, def: 35, spa: 20, spd: 45, spe: 75},
+		baseStats: {hp: 65, atk: 30, def: 45, spa: 30, spd: 55, spe: 75},
 		abilities: {0: "Own Tempo", 1: "Technician", H: "Trace"},
 		heightm: 1.2,
 		weightkg: 58,
