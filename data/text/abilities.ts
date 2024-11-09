@@ -186,6 +186,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 			shortDesc: "At 1/3 or less of its max HP, this Pokemon's Fire-type attacks have 1.5x power.",
 		},
 	},
+	blubberguard: {
+		name: "Blubber Guard",
+		desc: "If a Pokemon uses a Fighting- or Electric-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
+		shortDesc: "Fighting-/Electric-type moves against this Pokemon deal damage with a halved offensive stat.",
+	},
 	bulletproof: {
 		name: "Bulletproof",
 		shortDesc: "This Pokemon is immune to bullet moves.",
@@ -475,6 +480,12 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Filter",
 		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
 	},
+	finalstand: {
+		name: "Final Stand",
+		desc: "If this Pokemon's HP falls below 1/3rd of its maximum HP, its Attack, Defense, Special Attack, Special Defense, and Speed are boosted by 1 stage. This effect can only happen once per battle.",
+		shortDesc: "If this Pokemon's HP falls below 1/3, boosts all stats by 1. Once per battle.",
+		activate: "  [POKEMON] is fiercely making its last stand!",
+	},
 	flamebody: {
 		name: "Flame Body",
 		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be burned.",
@@ -489,7 +500,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	flareboost: {
 		name: "Flare Boost",
 		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5.",
-		shortDesc: "While this Pokemon is burned, its special attacks have 1.5x power.",
+		shortDesc: "Sp. Atk boosted by 1.5x while burned. No residual damage from Burn.",
 	},
 	flashfire: {
 		name: "Flash Fire",
@@ -643,12 +654,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	healer: {
 		name: "Healer",
-		desc: "30% chance this Pokemon's ally has its non-volatile status condition cured at the end of each turn.",
-		shortDesc: "30% chance this Pokemon's ally has its status cured at the end of each turn.",
-		gen6: {
-			desc: "30% chance each of this Pokemon's adjacent allies has its non-volatile status condition cured at the end of each turn.",
-			shortDesc: "30% chance each adjacent ally has its status cured at the end of each turn.",
-		},
+		desc: "This Pokemon gains 1.3x HP from attacks that drain HP, the residual healing from Aqua Ring, Ingrain, and Leech Seed, and from Strength Sap's draining effect.",
+		shortDesc: "This Pokemon gains 1.3x HP from draining/Aqua Ring/Ingrain/Leech Seed/Strength Sap.",
 	},
 	heatproof: {
 		name: "Heatproof",
@@ -663,6 +670,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Heavy Metal",
 		desc: "This Pokemon's weight is doubled. This effect is calculated after the effect of Autotomize, and before the effect of Float Stone.",
 		shortDesc: "This Pokemon's weight is doubled.",
+	},
+	heroic: {
+		name: "Heroic",
+		shortDesc: "This Pokemon's Attack is 25% higher.",
 	},
 	honeygather: {
 		name: "Honey Gather",
@@ -724,12 +735,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	illuminate: {
 		name: "Illuminate",
-		desc: "Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's evasiveness stat stage.",
-		shortDesc: "This Pokemon's accuracy can't be lowered by others; ignores their evasiveness stat.",
-		gen8: {
-			desc: "No competitive use.",
-			shortDesc: "No competitive use.",
-		},
+		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.3; ignores Evasion changes.",
 	},
 	illusion: {
 		name: "Illusion",
@@ -951,7 +957,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	magmaarmor: {
 		name: "Magma Armor",
-		shortDesc: "This Pokemon cannot be frozen. Gaining this Ability while frozen cures it.",
+		shortDesc: "This Pokemon takes halved damage from Water-/Ice-type moves. Cannot be frozen.",
 	},
 	magnetpull: {
 		name: "Magnet Pull",
@@ -1374,6 +1380,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Psychic Surge",
 		shortDesc: "On switch-in, this Pokemon summons Psychic Terrain.",
 	},
+	psychosis: {
+		name: "Psychosis",
+		shortDesc: "Psychic moves can hit Dark-types. Sp. Atk boosted by 1.1x.",
+	},
 	punkrock: {
 		name: "Punk Rock",
 		desc: "This Pokemon's sound-based moves have their power multiplied by 1.3. This Pokemon takes halved damage from sound-based moves.",
@@ -1421,11 +1431,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	raindish: {
 		name: "Rain Dish",
-		desc: "If Rain Dance is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
-		shortDesc: "If Rain Dance is active, this Pokemon heals 1/16 of its max HP each turn.",
-		gen7: {
-			desc: "If Rain Dance is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn.",
-		},
+		desc: "If Rain Dance is active, this Pokemon restores 1/8 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "If Rain Dance is active, this Pokemon heals 1/8 of its max HP each turn.",
 	},
 	rattled: {
 		name: "Rattled",
@@ -1510,12 +1517,12 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	runaway: {
 		name: "Run Away",
-		shortDesc: "No competitive use.",
+		shortDesc: "This Pokemon ignores the effects of trapping moves and abilities.",
 	},
 	sandforce: {
 		name: "Sand Force",
-		desc: "If Sandstorm is active, this Pokemon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm.",
-		shortDesc: "This Pokemon's Ground/Rock/Steel attacks do 1.3x in Sandstorm; immunity to it.",
+		desc: "If Sandstorm is active, this Pokemon's Attack is multiplied by 1.5 and it loses 1/10 of its maximum HP, rounded down, at the end of each turn. This Pokemon does not take residual damage from Sandstorm. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
+		shortDesc: "Sandstorm: 1.5x Atk, -1/10 HP per turn; Sand immunity.",
 	},
 	sandrush: {
 		name: "Sand Rush",
@@ -1690,12 +1697,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	snowcloak: {
 		name: "Snow Cloak",
-		desc: "If Snow is active, the accuracy of moves used against this Pokemon is multiplied by 0.8.",
-		shortDesc: "If Snow is active, this Pokemon's evasiveness is 1.25x.",
-		gen8: {
-			desc: "If Hail is active, the accuracy of moves used against this Pokemon is multiplied by 0.8. This Pokemon takes no damage from Hail.",
-			shortDesc: "If Hail is active, this Pokemon's evasiveness is 1.25x; immunity to Hail.",
-		},
+		desc: "This Pokemon is immune to Ice-type moves and restores 1/4 of its maximum HP, rounded down, when hit by an Ice-type move.",
+		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Ice moves; Ice immunity.",
 	},
 	snowwarning: {
 		name: "Snow Warning",
@@ -1706,8 +1709,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	solarpower: {
 		name: "Solar Power",
-		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
-		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x; loses 1/8 max HP per turn.",
+		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and it loses 1/10 of its maximum HP, rounded down, at the end of each turn. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
+		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x; loses 1/10 max HP per turn.",
 		gen7: {
 			desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn.",
 		},
@@ -2023,8 +2026,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	toxicboost: {
 		name: "Toxic Boost",
-		desc: "While this Pokemon is poisoned, the power of its physical attacks is multiplied by 1.5.",
-		shortDesc: "While this Pokemon is poisoned, its physical attacks have 1.5x power.",
+		desc: "While this Pokemon is poisoned, the power of its physical attacks is multiplied by 1.5. Immune to residual damage from Poison or Toxic.",
+		shortDesc: "Attack boosted by 1.5x while poisoned/toxic'd. No residual damage from Poison/Toxic.",
 	},
 	toxicchain: {
 		name: "Toxic Chain",

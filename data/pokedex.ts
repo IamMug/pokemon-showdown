@@ -17471,7 +17471,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		name: "Orthworm",
 		types: ["Steel"],
 		baseStats: {hp: 70, atk: 85, def: 145, spa: 60, spd: 55, spe: 65},
-		abilities: {0: "Earth Eater", H: "Earth Eater"},
+		abilities: {0: "Earth Eater", H: "Run Away"},
 		heightm: 2.5,
 		weightkg: 310,
 		color: "Pink",

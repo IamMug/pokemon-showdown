@@ -1270,6 +1270,22 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: 111,
 	},
+	finalstand: { // no idea if this works i hope it does! code cobbled together from berserk and battle bond -rex
+		onAfterMoveSecondary(target, source, move) {
+			if (source.abilityState.finalStandTriggered) return;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit && !move.smartTarget ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3) {
+				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, target, target);
+				this.add('-activate', source, 'ability: Final Stand');
+				source.abilityState.finalStandTriggered = true;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Final Stand",
+	},
 	flamebody: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
@@ -1282,6 +1298,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Flame Body",
 		rating: 2,
 		num: 49,
+	},
+	flareboost: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.status === 'brn' && move.category === 'Special') {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Flare Boost",
+		rating: 2,
+		num: 138,
 	},
 	flashfire: {
 		onTryHit(target, source, move) {

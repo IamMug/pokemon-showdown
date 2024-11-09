@@ -261,7 +261,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	airslash: {
 		num: 403,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 80,
 		category: "Special",
 		name: "Air Slash",
@@ -269,7 +269,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, slicing: 1},
 		secondary: {
-			chance: 35,
+			chance: 30,
 			volatileStatus: 'flinch',
 		},
 		target: "any",
@@ -10672,7 +10672,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			onFieldEnd() {
 				this.add('-fieldend', 'move: Water Sport');
 			},	
-		},		
+		},
 		heal: [1, 3],
 		secondary: null,
 		target: "allies",
@@ -17603,7 +17603,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	smackdown: {
 		num: 479,
 		accuracy: 100,
-		basePower: 50,
+		basePower: 60,
 		category: "Physical",
 		name: "Smack Down",
 		pp: 15,
