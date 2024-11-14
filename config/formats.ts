@@ -19,6 +19,18 @@ The column value will be ignored for repeat sections.
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 
+	// section exclusively for mug format :)
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "The Reason You're All Here",
+	},
+	{
+		name: "[Gen 9] Project S",
+		mod: 'gen9mugmoment',
+		ruleset: ['Standard'],
+	},
+
 	// S/V Singles
 	///////////////////////////////////////////////////////////////////
 
