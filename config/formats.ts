@@ -26,9 +26,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "The Reason You're All Here",
 	},
 	{
-		name: "[Gen 9] Project S",
+		name: "Project S",
 		mod: 'gen9mugmoment',
-		ruleset: ['Standard'],
+		ruleset: ['Standard Draft'],
 	},
 
 	// S/V Singles
