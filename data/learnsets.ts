@@ -31454,6 +31454,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			agility: ["8M", "8L20", "7L32", "7V", "6L32", "5L19", "4L19", "3L29"],
 			aircutter: ["5D", "4T"],
 			airslash: ["8M", "8L32", "7L36", "6L36", "5L36"],
+			airpressure: ["8M"],
 			amnesia: ["8M", "7E", "6E", "5E"],
 			aquaring: ["8L36", "7L39", "6L39", "5L39", "4L46"],
 			aquatail: ["7T", "6T", "5T", "4T"],

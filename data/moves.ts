@@ -1629,6 +1629,20 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Fighting",
 	},
+	airpressure: {
+		num: 1776,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Air Pressure",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		overrideOffensiveStat: 'spd',
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+	},
 	bodyslam: {
 		num: 34,
 		accuracy: 100,
@@ -4745,19 +4759,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	electroball: {
 		num: 486,
 		accuracy: 100,
-		basePower: 0,
-		basePowerCallback(pokemon, target) {
-			let ratio = Math.floor(pokemon.getStat('spe') / target.getStat('spe'));
-			if (!isFinite(ratio)) ratio = 0;
-			const bp = [40, 60, 80, 120, 150][Math.min(ratio, 4)];
-			this.debug('BP: ' + bp);
-			return bp;
-		},
+		basePower: 80,
 		category: "Special",
 		name: "Electro Ball",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		overrideOffensiveStat: 'spe',
 		secondary: null,
 		target: "normal",
 		type: "Electric",
@@ -8908,13 +8916,17 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Hidden Power",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onModifyType(move, pokemon) {
 			move.type = pokemon.hpType || 'Dark';
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.terastallized && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -14807,16 +14819,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	psywave: {
 		num: 149,
 		accuracy: 100,
-		basePower: 0,
-		damageCallback(pokemon) {
-			return (this.random(50, 151) * pokemon.level) / 100;
-		},
+		basePower: 95,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Psywave",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		overrideOffensivePokemon: 'target',
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
@@ -15828,8 +15837,14 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	rockthrow: {
 		num: 88,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 50,
+		onBasePower(power, user) {
+			if (user.side.removeSideCondition('stealthrock')) {
+				this.add('-sideend', user.side, "Stealth Rock", '[from] move: Rapid Spin', '[of] ' + user);
+				return power * 2;
+			}
+		},
 		category: "Physical",
 		name: "Rock Throw",
 		pp: 15,
@@ -18501,9 +18516,9 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) return;
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				let factor = 2;
+				if (pokemon.hasType('Flying')) factor = 4;
+				this.damage(pokemon.maxhp * factor / 16);
 			},
 		},
 		secondary: null,
@@ -18855,7 +18870,14 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		secondary: null,
+		secondary: {
+			chance: 30,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
@@ -21765,6 +21787,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: {snatch: 1, metronome: 1},
 		boosts: {
 			def: 1,
+			spd: 1,
 		},
 		secondary: null,
 		target: "self",

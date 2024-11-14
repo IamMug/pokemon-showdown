@@ -3862,10 +3862,13 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onBasePowerPriority: 16,
 		onBasePower(basePower, user, target, move) {
 			if (move.category === 'Physical') {
-				return this.chainModify([4505, 4096]);
+				const types = user.getTypes();
+				if (types.length === 1 && types[0] === 'Fighting') {
+					return basePower * 1.2;
+				}
+				return basePower * 1.1;
 			}
 		},
 		num: 266,
@@ -7237,7 +7240,11 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onBasePowerPriority: 16,
 		onBasePower(basePower, user, target, move) {
 			if (move.category === 'Special') {
-				return this.chainModify([4505, 4096]);
+				const types = user.getTypes();
+				if (types.length === 1 && types[0] === 'Psychic') {
+					return basePower * 1.2;
+				}
+				return basePower * 1.1;
 			}
 		},
 		num: 267,
