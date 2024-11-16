@@ -8277,7 +8277,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		num: 469,
 		name: "Yanmega",
 		types: ["Bug", "Dragon"],
-		baseStats: {hp: 86, atk: 76, def: 86, spa: 116, spd: 66, spe: 106},
+		baseStats: {hp: 86, atk: 76, def: 86, spa: 121, spd: 66, spe: 106},
 		abilities: {0: "Speed Boost", 1: "Tinted Lens", H: "Levitate"},
 		heightm: 1.9,
 		weightkg: 51.5,
