@@ -1632,7 +1632,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	airpressure: {
 		num: 1776,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 70,
 		category: "Special",
 		name: "Air Pressure",
 		pp: 10,
@@ -3337,15 +3337,15 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	crushclaw: {
 		num: 306,
-		accuracy: 95,
-		basePower: 75,
+		accuracy: 100,
+		basePower: 70,
 		category: "Physical",
 		name: "Crush Claw",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: {
-			chance: 50,
+			chance: 100,
 			boosts: {
 				def: -1,
 			},
@@ -4759,10 +4759,10 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	electroball: {
 		num: 486,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 65,
 		category: "Special",
 		name: "Electro Ball",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		overrideOffensiveStat: 'spe',
@@ -5362,7 +5362,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	feint: {
 		num: 364,
 		accuracy: 100,
-		basePower: 30,
+		basePower: 50,
 		category: "Physical",
 		name: "Feint",
 		pp: 10,
@@ -5555,7 +5555,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	firelash: {
 		num: 680,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 70,
 		category: "Physical",
 		name: "Fire Lash",
 		pp: 15,
@@ -9466,7 +9466,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Hyper Fang",
 		pp: 15,
 		priority: 0,
@@ -13956,7 +13955,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	poisonfang: {
 		num: 305,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 75,
 		category: "Physical",
 		name: "Poison Fang",
 		pp: 15,
@@ -18515,12 +18514,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
-			onEntryHazard(pokemon) {
-				let factor = 2;
-				if (pokemon.hasType('Flying')) factor = 4;
-				this.damage(pokemon.maxhp * factor / 16);
-			},
-		},
+            onEntryHazard(pokemon) {
+                if (pokemon.hasItem('heavydutyboots')) return;
+                let factor = 2;
+                if (pokemon.hasType('Flying')) factor = 4;
+                this.damage(pokemon.maxhp * factor / 16);
+            },
+        },
 		secondary: null,
 		target: "foeSide",
 		type: "Rock",
@@ -20288,7 +20288,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	thunderfang: {
 		num: 422,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 70,
 		category: "Physical",
 		name: "Thunder Fang",
 		pp: 15,
