@@ -18463,10 +18463,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 	},
 	clayrora: {
-		num: 2001,
-		name: "Clayroar",
+		num: 2002,
+		name: "Clayrora",
 		types: ["Ground", "Fairy"],
-		gender: "N",
+		gender: "F",
 		baseStats: {hp: 177, atk: 34, def: 177, spa: 113, spd: 66, spe: 113},
 		abilities: {0: "Magic Guard", 1: "Adaptability", H: "Speed Boost"},
 		heightm: 4.4,
