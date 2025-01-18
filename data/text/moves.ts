@@ -94,6 +94,11 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		desc: "Has a higher chance for a critical hit.",
 		shortDesc: "High critical hit ratio. Hits adjacent foes.",
 	},
+	airpressure: {
+		name: "Air Pressure",
+		desc: "Damage is calculated using the user's Special Defense stat as its Attack, including stat stage changes. Other effects that modify the Special Attack stat are used as normal.",
+		shortDesc: "Uses user's Sp Def stat as Sp Atk in damage calculation.",
+	},
 	airslash: {
 		name: "Air Slash",
 		desc: "Has a 30% chance to make the target flinch.",
@@ -857,8 +862,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	chatter: {
 		name: "Chatter",
-		desc: "Has a 100% chance to confuse the target.",
-		shortDesc: "100% chance to confuse the target.",
+		desc: "The user spends two or three turns locked into this move and becomes confused immediately after its move on the last turn of the effect if it is not already. This move targets an opposing Pokemon at random on each turn. If the user is prevented from moving, is asleep at the beginning of a turn, or the attack is not successful against the target on the first turn of the effect or the second turn of a three-turn effect, the effect ends without causing confusion. If this move is called by Sleep Talk and the user is asleep, the move is used for one turn and does not confuse the user.",
+		shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
 		gen5: {
 			desc: "Has an X% chance to confuse the target, where X is 0 unless the user is a Chatot that hasn't Transformed. If the user is a Chatot, X is 0 or 10 depending on the volume of Chatot's recorded cry, if any; 0 for a low volume or no recording, 10 for a medium to high volume recording.",
 			shortDesc: "For Chatot, 10% chance to confuse the target.",
@@ -870,8 +875,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	chillingwater: {
 		name: "Chilling Water",
-		desc: "Has a 100% chance to lower the target's Attack by 1 stage.",
-		shortDesc: "100% chance to lower the target's Attack by 1.",
+		desc: "Has a 100% chance to lower the target's Attack and Special Attack by 1 stage.",
+		shortDesc: "100% chance to lower target's Atk and Sp Atk by 1.",
 	},
 	chillyreception: {
 		name: "Chilly Reception",
@@ -1189,8 +1194,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	crushclaw: {
 		name: "Crush Claw",
-		desc: "Has a 50% chance to lower the target's Defense by 1 stage.",
-		shortDesc: "50% chance to lower the target's Defense by 1.",
+		desc: "Has a 100% chance to lower the target's Defense by 1 stage.",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
 	},
 	crushgrip: {
 		name: "Crush Grip",
@@ -1560,7 +1565,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	dragonrage: {
 		name: "Dragon Rage",
-		shortDesc: "Deals 40 HP of damage to the target.",
+		desc: "Deals damage to the target equal to the user's level.",
+		shortDesc: "Does damage equal to the user's level.",
 	},
 	dragonrush: {
 		name: "Dragon Rush",
@@ -1697,11 +1703,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	electroball: {
 		name: "Electro Ball",
-		desc: "The power of this move depends on (user's current Speed / target's current Speed), rounded down. Power is equal to 150 if the result is 4 or more, 120 if 3, 80 if 2, 60 if 1, 40 if less than 1. If the target's current Speed is 0, this move's power is 40.",
-		shortDesc: "More power the faster the user is than the target.",
-		gen5: {
-			desc: "The power of this move depends on (user's current Speed / target's current Speed), rounded down. Power is equal to 150 if the result is 4 or more, 120 if 3, 80 if 2, 60 if 1, 40 if less than 1. If the target's current Speed is 0, it is treated as 1 instead.",
-		},
+		desc: "Damage is calculated using the user's Speed stat as its Attack, including stat stage changes. Other effects that modify the Special Attack stat are used as normal.",
+		shortDesc: "Uses user's Speed stat as Sp Atk in damage calculation.",
 	},
 	electrodrift: {
 		name: "Electro Drift",
@@ -3144,7 +3147,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	hyperdrill: {
 		name: "Hyper Drill",
-		shortDesc: "Bypasses protection without breaking it.",
+		shortDesc: "High crit ratio. Bypasses protection.",
 	},
 	hyperfang: {
 		name: "Hyper Fang",
@@ -3565,8 +3568,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	lifedew: {
 		name: "Life Dew",
-		desc: "Each Pokemon on the user's side restores 1/4 of its maximum HP, rounded half up.",
-		shortDesc: "Heals the user and its allies by 1/4 their max HP.",
+		desc: "Each Pokemon on the user's side restores 1/3 of its maximum HP, rounded half up.",
+		shortDesc: "Heals the user and its allies by 1/3 their max HP.",
 	},
 	lightofruin: {
 		name: "Light of Ruin",
@@ -4013,8 +4016,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	meteorassault: {
 		name: "Meteor Assault",
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
-		shortDesc: "User cannot move next turn.",
+		desc: "Lowers the user's Attack by 2 stages.",
+		shortDesc: "Lowers the user's Attack by 2.",
 	},
 	meteorbeam: {
 		name: "Meteor Beam",
@@ -4564,8 +4567,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	payday: {
 		name: "Pay Day",
-		desc: "Always lands a critical hit, unless the target cannot be critically hit.",
-		shortDesc: "Always crits. Scatters coins.",
+		desc: "This move is always a critical hit unless the target is under the effect of Lucky Chant or has the Battle Armor or Shell Armor Abilities. This move does not check accuracy.",
+		shortDesc: "Always crits; no accuracy check. Scatters coins.",
 
 		activate: "  Coins were scattered everywhere!",
 	},
@@ -4922,8 +4925,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	psywave: {
 		name: "Psywave",
-		desc: "Deals damage to the target equal to (user's level) * (X + 50) / 100, where X is a random number from 0 to 100, rounded down, but not less than 1 HP.",
-		shortDesc: "Random damage equal to 0.5x-1.5x user's level.",
+		desc: "Damage is calculated using the target's Special Attack stat, including stat stage changes. The user's Ability, item, and burn are used as normal.",
+		shortDesc: "Uses target's Sp Atk stat in damage calculation.",
 		gen4: {
 			desc: "Deals damage to the target equal to (user's level) * (X * 10 + 50) / 100, where X is a random number from 0 to 10, rounded down, but not less than 1 HP.",
 		},
@@ -5323,8 +5326,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	rockwrecker: {
 		name: "Rock Wrecker",
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
-		shortDesc: "User cannot move next turn.",
+		desc: "Lowers the user's Attack by 2 stages.",
+		shortDesc: "Lowers the user's Attack by 2.",
 	},
 	roleplay: {
 		name: "Role Play",
@@ -5657,8 +5660,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	shellsidearm: {
 		name: "Shell Side Arm",
-		desc: "Has a 20% chance to poison the target. This move becomes a physical attack that makes contact if the value of ((((2 * the user's level / 5 + 2) * 90 * X) / Y) / 50), where X is the user's Attack stat and Y is the target's Defense stat, is greater than the same value where X is the user's Special Attack stat and Y is the target's Special Defense stat. No stat modifiers other than stat stage changes are considered for this purpose. If the two values are equal, this move chooses a damage category at random.",
-		shortDesc: "20% psn. Physical+contact if it would be stronger.",
+		desc: "Has a 20% chance to poison the target. Power doubles if the user moves before the target. This move becomes a physical attack that makes contact if the value of ((((2 * the user's level / 5 + 2) * 90 * X) / Y) / 50), where X is the user's Attack stat and Y is the target's Defense stat, is greater than the same value where X is the user's Special Attack stat and Y is the target's Special Defense stat. No stat modifiers other than stat stage changes are considered for this purpose. If the two values are equal, this move chooses a damage category at random.",
+		shortDesc: "20% psn. 2x power if move first. Physical if stronger.",
 	},
 	shellsmash: {
 		name: "Shell Smash",
@@ -5828,8 +5831,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	skyuppercut: {
 		name: "Sky Uppercut",
-		desc: "This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop.",
-		shortDesc: "Can hit Pokemon using Bounce, Fly, or Sky Drop.",
+		desc: "This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. This move's type effectiveness against Flying is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Super effecting on Flying.",
 		gen4: {
 			desc: "This move can hit a target using Bounce or Fly.",
 			shortDesc: "Can hit Pokemon using Bounce or Fly.",
@@ -6044,8 +6047,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	sonicboom: {
 		name: "Sonic Boom",
-		desc: "Deals 20 HP of damage to the target.",
-		shortDesc: "Always does 20 HP of damage.",
+		desc: "Deals damage to the target equal to the user's level.",
+		shortDesc: "Does damage equal to the user's level.",
 		gen1: {
 			desc: "Deals 20 HP of damage to the target. This move ignores type immunity.",
 		},
@@ -6429,7 +6432,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	submission: {
 		name: "Submission",
 		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 1/4 recoil.",
+		shortDesc: "Has 1/3 recoil.",
 		gen4: {
 			desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded down, but not less than 1 HP.",
 		},
@@ -7070,8 +7073,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	tripledive: {
 		name: "Triple Dive",
-		desc: "Hits three times.",
-		shortDesc: "Hits 3 times.",
+		desc: "Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
 	},
 	triplekick: {
 		name: "Triple Kick",

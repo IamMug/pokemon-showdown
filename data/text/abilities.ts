@@ -189,7 +189,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	blubberguard: {
 		name: "Blubber Guard",
 		desc: "If a Pokemon uses a Fighting- or Electric-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
-		shortDesc: "Fighting-/Electric-type moves against this Pokemon deal damage with a halved offensive stat.",
+		shortDesc: "This Pokemon takes halved damage from Electric-/Fighting-type moves.",
 	},
 	bulletproof: {
 		name: "Bulletproof",
@@ -269,7 +269,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	corrosion: {
 		name: "Corrosion",
-		shortDesc: "This Pokemon can poison or badly poison a Pokemon regardless of its typing.",
+		desc: "This Pokemon can hit Steel types with Poison-type moves. This Pokemon can poison or badly poison a Pokemon regardless of its typing.",
+		shortDesc: "Poison moves hit Steel. Poison and badly poison ignores typings.",
 	},
 	costar: {
 		name: "Costar",
@@ -499,8 +500,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	flareboost: {
 		name: "Flare Boost",
-		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5.",
-		shortDesc: "Sp. Atk boosted by 1.5x while burned. No residual damage from Burn.",
+		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5. Immune to residual damage from Burn.",
+		shortDesc: "Special attacks have 1.5x power while burned. No HP loss from Burn.",
 	},
 	flashfire: {
 		name: "Flash Fire",
@@ -957,6 +958,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	magmaarmor: {
 		name: "Magma Armor",
+		desc: "If a Pokemon uses a Water- or Ice-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon. This Pokemon cannot be frozen.",
 		shortDesc: "This Pokemon takes halved damage from Water-/Ice-type moves. Cannot be frozen.",
 	},
 	magnetpull: {
@@ -1522,7 +1524,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	sandforce: {
 		name: "Sand Force",
 		desc: "If Sandstorm is active, this Pokemon's Attack is multiplied by 1.5 and it loses 1/10 of its maximum HP, rounded down, at the end of each turn. This Pokemon does not take residual damage from Sandstorm. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
-		shortDesc: "Sandstorm: 1.5x Atk, -1/10 HP per turn; Sand immunity.",
+		shortDesc: "If Sandstorm is active, Attack is 1.5x and loses 1/10 HP per turn; Sand immunity.",
 	},
 	sandrush: {
 		name: "Sand Rush",
@@ -1827,6 +1829,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 
 		activate: "#lightningrod",
 	},
+	striker: {
+		name: "Striker",
+		desc: "This Pokemon's kick-based attacks have their power multiplied by 1.2 and ignore accuracy checks.",
+		shortDesc: "This Pokemon's kick-based attacks have 1.2x power and cannot miss.",
+	},
 	strongjaw: {
 		name: "Strong Jaw",
 		desc: "This Pokemon's bite-based attacks have their power multiplied by 1.5.",
@@ -1997,7 +2004,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	thickfat: {
 		name: "Thick Fat",
 		desc: "If a Pokemon uses a Fire- or Ice-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
-		shortDesc: "Fire-/Ice-type moves against this Pokemon deal damage with a halved offensive stat.",
+		shortDesc: "This Pokemon takes halved damage from Fire-/Ice-type moves.",
 		gen4: {
 			desc: "The power of Fire- and Ice-type attacks against this Pokemon is halved.",
 			shortDesc: "The power of Fire- and Ice-type attacks against this Pokemon is halved.",
@@ -2027,7 +2034,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	toxicboost: {
 		name: "Toxic Boost",
 		desc: "While this Pokemon is poisoned, the power of its physical attacks is multiplied by 1.5. Immune to residual damage from Poison or Toxic.",
-		shortDesc: "Attack boosted by 1.5x while poisoned/toxic'd. No residual damage from Poison/Toxic.",
+		shortDesc: "Physical attacks have 1.5x power while poisoned. No HP loss from Poison.",
 	},
 	toxicchain: {
 		name: "Toxic Chain",

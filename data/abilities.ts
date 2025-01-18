@@ -686,7 +686,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 126,
 	},
 	corrosion: {
-		// Implemented in sim/pokemon.js:Pokemon#setStatus
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		// Status aspect implemented in sim/pokemon.js:Pokemon#setStatus
+		// Pull Degredation code if super-effectiveness is wanted instead.
 		flags: {},
 		name: "Corrosion",
 		rating: 2.5,
@@ -4614,6 +4622,25 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Storm Drain",
 		rating: 3,
 		num: 114,
+	},
+	striker: {
+		name: "Striker",
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags.kick) {
+				this.debug('Striker boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move.flags.kick) {
+				this.debug('Striker - ensuring perfect accuracy');
+				return true;
+			}
+			return accuracy;
+		},
+		rating: 3,
+		num: 1089,
 	},
 	strongjaw: {
 		onBasePowerPriority: 19,
