@@ -1361,8 +1361,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	direclaw: {
 		name: "Dire Claw",
-		desc: "Has a 50% chance to cause the target to either fall asleep, become poisoned, or become paralyzed.",
-		shortDesc: "50% chance to sleep, poison, or paralyze target.",
+		desc: "Has a 30% chance to poison the target. Power doubles if the target has a non-volatile status condition.",
+		shortDesc: "30% psn. 2x power if target is already statused.",
 	},
 	disable: {
 		name: "Disable",
@@ -6647,6 +6647,11 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		name: "Tachyon Cutter",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. This move does not check accuracy.",
 		shortDesc: "Hits twice. This move does not check accuracy.",
+	},
+	tagout: {
+		name: "Tagout",
+		desc: "If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members, or if the target switched out using an Eject Button or through the effect of the Emergency Exit or Wimp Out Abilities.",
+		shortDesc: "User switches out after damaging the target.",
 	},
 	tailglow: {
 		name: "Tail Glow",

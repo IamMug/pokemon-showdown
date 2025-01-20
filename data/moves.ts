@@ -3864,23 +3864,18 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		num: 827,
 		accuracy: 100,
 		basePower: 80,
-		category: "Physical",
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
 		name: "Dire Claw",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: {
-			chance: 50,
-			onHit(target, source) {
-				const result = this.random(3);
-				if (result === 0) {
-					target.trySetStatus('psn', source);
-				} else if (result === 1) {
-					target.trySetStatus('par', source);
-				} else {
-					target.trySetStatus('slp', source);
-				}
-			},
+			chance: 30,
+			status: 'psn',
 		},
 		target: "normal",
 		type: "Poison",
@@ -12773,7 +12768,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	mortalspin: {
 		num: 866,
 		accuracy: 100,
-		basePower: 30,
+		basePower: 50,
 		category: "Physical",
 		name: "Mortal Spin",
 		pp: 15,
@@ -19573,6 +19568,21 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+	},
+	tagout: {
+		num: 1369, // U-turn's ID +1000
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Tagout",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
 	},
 	tailglow: {
 		num: 294,
