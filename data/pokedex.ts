@@ -13631,7 +13631,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		name: "Comfey",
 		types: ["Fairy"],
 		genderRatio: {M: 0.25, F: 0.75},
-		baseStats: {hp: 51, atk: 52, def: 90, spa: 82, spd: 110, spe: 100},
+		baseStats: {hp: 55, atk: 52, def: 90, spa: 85, spd: 110, spe: 100},
 		abilities: {0: "Flower Veil", 1: "Triage", H: "Natural Cure"},
 		heightm: 0.1,
 		weightkg: 0.3,
