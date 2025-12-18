@@ -82137,7 +82137,6 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			facade: ["9M", "8M"],
 			fling: ["9M", "8M"],
 			flipturn: ["9M"],
-			focusenergy: ["8M"],
 			gigaimpact: ["9M", "8M"],
 			growl: ["9L1", "8L1"],
 			haze: ["9M"],
@@ -82192,6 +82191,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			nastyplot: ["9L50"],
 			sludgebomb: ["9L50"],
 			encore: ["9L50"],
+			focusenergy: ["9L58"],
 		},
 	},
 	skwovet: {
