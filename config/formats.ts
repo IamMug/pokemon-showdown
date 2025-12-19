@@ -26,9 +26,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "The Reason You're All Here",
 	},
 	{
-		name: "Project S",
-		mod: 'gen9mugmoment',
-		ruleset: ['Standard Draft'],
+		name: "[Gen 9] Project S (Natdex)",
+		mod: 'gen9',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Terastal Clause'],
+		banlist: [
+			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
 	},
 
 	// S/V Singles

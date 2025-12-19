@@ -12094,7 +12094,6 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	},
 	magnezone: {
 		learnset: {
-			overheat: ["9M", "7T"],
 			barrier: ["7L1", "6L1", "5L1", "4L1"],
 			bodypress: ["9M", "8M"],
 			bodyslam: ["9M"],
