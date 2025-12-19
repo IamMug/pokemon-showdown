@@ -20556,7 +20556,9 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	espeon: {
 		learnset: {
 			alluringvoice: ["9M"],
+			healblock: ["9M"],
 			allyswitch: ["8M", "7T"],
+			safeguard: ["9M"],
 			attract: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
 			babydolleyes: ["9L15", "8L15", "7L9"],
 			batonpass: ["9M", "9L1", "8M", "8L1"],
