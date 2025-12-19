@@ -23,7 +23,7 @@ export const ABILITY_MOVE_TYPE_BONUSES: {[abilityID: IDEntry]: {[typeName: strin
 	pixilate: {Normal: 1.5 * 1.2},
 	refrigerate: {Normal: 1.5 * 1.2},
 	aerilate: {Normal: 1.5 * 1.2},
-	normalize: {Normal: 1.2},
+	normalize: {Normal: 1.5},
 
 	// weather
 	drizzle: {Water: 1.4, Fire: 0.6},
