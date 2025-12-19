@@ -16444,7 +16444,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		num: 901,
 		name: "Ursaluna",
 		types: ["Ground", "Normal"],
-		baseStats: {hp: 130, atk: 140, def: 105, spa: 45, spd: 80, spe: 50},
+		baseStats: {hp: 130, atk: 140, def: 105, spa: 45, spd: 80, spe: 55},
 		abilities: {0: "Guts", 1: "Bulletproof", H: "Unnerve"},
 		heightm: 2.4,
 		weightkg: 290,
