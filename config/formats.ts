@@ -26,7 +26,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "The Reason You're All Here",
 	},
 	{
-		name: "Project S",
+		name: "[Gen 9] Project S (Natdex)",
 		mod: 'gen9',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Terastal Clause'],
 		banlist: [
