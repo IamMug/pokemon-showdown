@@ -5530,7 +5530,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	firefang: {
 		num: 424,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 75,
 		category: "Physical",
 		name: "Fire Fang",
 		pp: 15,
@@ -9462,7 +9462,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	hyperfang: {
 		num: 158,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 95,
 		category: "Physical",
 		name: "Hyper Fang",
 		pp: 15,
@@ -9674,7 +9674,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	icefang: {
 		num: 423,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 75,
 		category: "Physical",
 		name: "Ice Fang",
 		pp: 15,
@@ -9715,7 +9715,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	icepunch: {
 		num: 8,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 80,
 		category: "Physical",
 		name: "Ice Punch",
 		pp: 15,
@@ -12030,8 +12030,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	megapunch: {
 		num: 5,
-		accuracy: 85,
-		basePower: 80,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
 		name: "Mega Punch",
 		pp: 20,
@@ -13880,7 +13880,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	plasmafists: {
 		num: 721,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Past",
 		name: "Plasma Fists",
@@ -16708,7 +16708,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	shadowpunch: {
 		num: 325,
 		accuracy: true,
-		basePower: 60,
+		basePower: 80,
 		category: "Physical",
 		name: "Shadow Punch",
 		pp: 20,
@@ -19197,7 +19197,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	superfang: {
 		num: 162,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 0,
 		damageCallback(pokemon, target) {
 			return this.clampIntRange(target.getUndynamaxedHP() / 2, 1);
@@ -20314,7 +20314,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	thunderfang: {
 		num: 422,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 75,
 		category: "Physical",
 		name: "Thunder Fang",
 		pp: 15,
@@ -20354,7 +20354,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	thunderpunch: {
 		num: 9,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 80,
 		category: "Physical",
 		name: "Thunder Punch",
 		pp: 15,
