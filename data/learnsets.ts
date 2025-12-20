@@ -91086,7 +91086,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	},
 	gholdengo: {
 		learnset: {
-			automize: ["9L99"],
+			autotomize: ["9L99"],
 			astonish: ["9L1"],
 			chargebeam: ["9M"],
 			confuseray: ["9M", "9L19"],
