@@ -4756,10 +4756,10 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	electroball: {
 		num: 486,
 		accuracy: 100,
-		basePower: 65,
+		basePower: 70,
 		category: "Special",
 		name: "Electro Ball",
-		pp: 5,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		overrideOffensiveStat: 'spe',
