@@ -99585,6 +99585,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			thunderwave: ["9M", "9M"],
 			willowisp: ["9M", "9M"],
 			workup: ["9M"],
+			flipturn: ["9M"],
 		},
 	},
 	miasmite: {
@@ -100178,6 +100179,8 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			willowisp: ["9M"],
 			wrap: ["9L1"],
 			zenheadbutt: ["9M"],
+			bitterblade: ["9M"],
+			firelash: ["9M"],
 		},
 	},
 	cresceidon: {

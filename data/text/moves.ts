@@ -1684,7 +1684,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	eggbomb: {
 		name: "Egg Bomb",
-		shortDesc: "Has 1/2 Recoil",
+		shortDesc: "Has 1/2 recoil.",
 	},
 	electricterrain: {
 		name: "Electric Terrain",
@@ -3750,9 +3750,10 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 
 		start: "  [POKEMON] became trapped by swirling magma!",
 	},
-	magnetbomb: {
-		name: "Magnet Bomb",
-		shortDesc: "This move does not check accuracy.",
+    magnetbomb: {
+        name: "Magnet Bomb",
+        desc: "Has a 10% chance to burn the target. This move's type effectiveness against Steel is changed to be super effective no matter what this move's type is.",
+        shortDesc: "10% chance to burn. Super effective on Steel.",
 	},
 	magneticflux: {
 		name: "Magnetic Flux",
@@ -4385,8 +4386,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	needlearm: {
 		name: "Needle Arm",
-		desc: "Has a 30% chance to make the target flinch.",
-		shortDesc: "30% chance to make the target flinch.",
+		desc: "Has a 10% chance to paralyze the target and a 10% chance to make it flinch.",
+		shortDesc: "30% chance to paralyze. 30% chance to flinch.",
 		gen3: {
 			desc: "Has a 30% chance to make the target flinch. Damage doubles if the target has used Minimize while active.",
 		},
@@ -4464,7 +4465,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	octazooka: {
 		name: "Octazooka",
 		desc: "Has a 50% chance to lower the target's accuracy by 1 stage.",
-		shortDesc: "Has 1/2 Recoil",
+		shortDesc: "Has 1/2 recoil.",
 	},
 	octolock: {
 		name: "Octolock",

@@ -3575,6 +3575,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 5,
 		num: 74,
 	},
+	theentity: {
+		onModifyHpPriority: 5,
+		onModifyHp(hp) {
+			return this.chainModify(2);
+		},
+		flags: {},
+		name: "The Entity",
+		rating: 5,
+		num: 1174,
+	},
 	heroic: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
