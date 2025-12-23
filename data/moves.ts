@@ -4186,7 +4186,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	dragonbreath: {
 		num: 225,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 70,
 		category: "Special",
 		name: "Dragon Breath",
 		pp: 20,
@@ -13914,14 +13914,14 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	playrough: {
 		num: 583,
 		accuracy: 90,
-		basePower: 90,
+		basePower: 100,
 		category: "Physical",
 		name: "Play Rough",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: {
-			chance: 10,
+			chance: 20,
 			boosts: {
 				atk: -1,
 			},
@@ -13933,7 +13933,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	pluck: {
 		num: 365,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 70,
 		category: "Physical",
 		name: "Pluck",
 		pp: 20,
@@ -20377,7 +20377,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		onModifyMove(move) {
+		onModifyMove(move, pokemon, target) {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Ground'] = true;

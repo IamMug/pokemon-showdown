@@ -3583,7 +3583,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Heroic",
 		rating: 4,
-		num: 74,
+		num: 1074,
 	},
 	purifyingsalt: {
 		onSetStatus(status, target, source, effect) {
@@ -5423,7 +5423,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Flycatcher",
 		rating: 3.5,
-		num: 11,
+		num: 1011,
 	},	
 	waterbubble: {
 		onSourceModifyAtkPriority: 5,

@@ -52635,26 +52635,31 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	rotomheat: {
 		learnset: {
 			overheat: ["9R", "9R", "9R", "9R", "5R", "9R"],
+			mysticalfire: ["9M"],
 		},
 	},
 	rotomwash: {
 		learnset: {
 			hydropump: ["9R", "9R", "9R", "9R", "5R", "9R"],
+			chillingwater: ["9M"],
 		},
 	},
 	rotomfrost: {
 		learnset: {
 			blizzard: ["9R", "9R", "9R", "9R", "5R", "9R"],
+			freezedry: ["9M"],
 		},
 	},
 	rotomfan: {
 		learnset: {
 			airslash: ["9R", "9R", "9R", "9R", "5R", "9R"],
+			hurricane: ["9M"],
 		},
 	},
 	rotommow: {
 		learnset: {
 			leafstorm: ["9R", "9R", "9R", "9R", "5R", "9R"],
+			gigadrain: ["9M"],
 		},
 	},
 	uxie: {
