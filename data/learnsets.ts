@@ -82487,11 +82487,8 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			willowisp: ["9M"],
 			workup: ["9M"],
 			zenheadbutt: ["9M", "9M"],
-			encore: ["9L50"],
-			burningbulwark: ["9L50"],
 			stompingtantrum: ["9L50"],
 			wildcharge: ["9L50"],
-			slackoff: ["9L50"],
 		},
 	},
 	sobble: {
