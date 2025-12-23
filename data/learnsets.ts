@@ -14204,6 +14204,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			wakeupslap: ["9L29"],
 			zapcannon: ["9V"],
 			zenheadbutt: ["9M", "9L32", "9T", "9L91", "9T", "9L91", "5T", "5L91", "9T", "9L99"],
+			playrough: ["9M"],
 		},
 		eventData: [
 			{generation: 3, level: 39, abilities: ["insomnia"], moves: ["batonpass", "psychic", "meditate", "shadowball"]},
