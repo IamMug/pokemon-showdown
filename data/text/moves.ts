@@ -97,7 +97,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	airpressure: {
 		name: "Air Pressure",
 		desc: "Damage is calculated using the user's Special Defense stat as its Attack, including stat stage changes. Other effects that modify the Special Attack stat are used as normal.",
-		shortDesc: "Uses user's Sp Def stat as Sp Atk in damage calculation.",
+		shortDesc: "Calculates damage with user's Sp. Def. as Sp. Atk.",
 	},
 	airslash: {
 		name: "Air Slash",
@@ -584,7 +584,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	bodypress: {
 		name: "Body Press",
 		desc: "Damage is calculated using the user's Defense stat as its Attack, including stat stage changes. Other effects that modify the Attack stat are used as normal.",
-		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
+		shortDesc: "Calculates damage with user's Defense as Attack",
 	},
 	bodyslam: {
 		name: "Body Slam",
@@ -1684,7 +1684,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	eggbomb: {
 		name: "Egg Bomb",
-		shortDesc: "No additional effect.",
+		shortDesc: "Has 1/2 Recoil",
 	},
 	electricterrain: {
 		name: "Electric Terrain",
@@ -1704,7 +1704,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	electroball: {
 		name: "Electro Ball",
 		desc: "Damage is calculated using the user's Speed stat as its Attack, including stat stage changes. Other effects that modify the Special Attack stat are used as normal.",
-		shortDesc: "Uses user's Speed stat as Sp Atk in damage calculation.",
+		shortDesc: "Calculates damage with user's Speed as Sp. Atk.",
 	},
 	electrodrift: {
 		name: "Electro Drift",
@@ -4006,8 +4006,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	metalclaw: {
 		name: "Metal Claw",
-		desc: "Has a 10% chance to raise the user's Attack by 1 stage.",
-		shortDesc: "10% chance to raise the user's Attack by 1.",
+		desc: "Has a 30% chance to raise the user's Attack by 1 stage.",
+		shortDesc: "30% chance to raise the user's Attack by 1.",
 	},
 	metalsound: {
 		name: "Metal Sound",
@@ -4464,7 +4464,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	octazooka: {
 		name: "Octazooka",
 		desc: "Has a 50% chance to lower the target's accuracy by 1 stage.",
-		shortDesc: "50% chance to lower the target's accuracy by 1.",
+		shortDesc: "Has 1/2 Recoil",
 	},
 	octolock: {
 		name: "Octolock",
@@ -5966,7 +5966,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	snipeshot: {
 		name: "Snipe Shot",
 		desc: "Has a higher chance for a critical hit. This move cannot be redirected to a different target by any effect.",
-		shortDesc: "High critical hit ratio. Cannot be redirected.",
+		shortDesc:  "Always results in a critical hit; no accuracy check.",
 	},
 	snore: {
 		name: "Snore",
@@ -6931,8 +6931,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	thundershock: {
 		name: "Thunder Shock",
-		desc: "Has a 10% chance to paralyze the target.",
-		shortDesc: "10% chance to paralyze the target.",
+		desc: "Has a 30% chance to paralyze the target, While also hitting through Ground Type Immunities.",
+		shortDesc: "30% chance to paralyze the target, Can Hit Ground Types.",
 	},
 	thunderwave: {
 		name: "Thunder Wave",

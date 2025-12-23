@@ -5411,6 +5411,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3.5,
 		num: 11,
 	},
+	flycatcher: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Bug') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Flycatcher');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Flycatcher",
+		rating: 3.5,
+		num: 11,
+	},	
 	waterbubble: {
 		onSourceModifyAtkPriority: 5,
 		onSourceModifyAtk(atk, attacker, defender, move) {

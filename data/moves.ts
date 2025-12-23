@@ -12151,17 +12151,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	meteorassault: {
 		num: 794,
-		accuracy: 100,
-		basePower: 150,
+		accuracy: 90,
+		basePower: 130,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Meteor Assault",
 		pp: 5,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1, failinstruct: 1},
-		self: {
-			volatileStatus: 'mustrecharge',
-		},
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
@@ -13109,17 +13105,21 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	needlearm: {
 		num: 302,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 80,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Needle Arm",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		secondary: {
-			chance: 30,
-			volatileStatus: 'flinch',
-		},
+		secondaries: [
+			{
+				chance: 30,
+				status: 'par',
+			}, {
+				chance: 30,
+				volatileStatus: 'flinch',
+			},
+		],
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
@@ -20371,14 +20371,20 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	thundershock: {
 		num: 84,
 		accuracy: 100,
-		basePower: 40,
+		basePower: 50,
 		category: "Special",
 		name: "Thunder Shock",
 		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Ground'] = true;
+			}
+		},
 		secondary: {
-			chance: 10,
+			chance: 30,
 			status: 'par',
 		},
 		target: "normal",
