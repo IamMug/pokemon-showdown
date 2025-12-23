@@ -3574,17 +3574,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Pure Power",
 		rating: 5,
 		num: 74,
-	},
-	theentity: {
-		onModifyHpPriority: 5,
-		onModifyHp(hp) {
-			return this.chainModify(2);
+    },
+	remedialooze: {
+		onFoeSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 4);
 		},
 		flags: {},
-		name: "The Entity",
-		rating: 5,
-		num: 1174,
-	},
+		name: "Remedial Ooze",
+		rating: 4.5,
+		num: 1424,
+	},	
 	heroic: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
