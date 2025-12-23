@@ -8224,6 +8224,22 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Fairy",
 		contestType: "Tough",
 	},
+	    shadowbox: {
+        accuracy: 100,
+        basePower: 80,
+        category: "Physical",
+        name: "Shadowbox",
+        pp: 10,
+        priority: 0,
+        flags: {protect: 1, mirror: 1, punch: 1},
+        ignoreImmunity: {'Fighting': true},
+        onEffectiveness(typeMod, target, type) {
+            if (type === 'Ghost') return 1;
+        },
+        target: "normal",
+        type: "Fighting",
+        contestType: "Cool",
+    },
 	guardsplit: {
 		num: 470,
 		accuracy: true,
@@ -20377,12 +20393,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		onModifyMove(move, pokemon, target) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Ground'] = true;
-			}
-		},
+        ignoreImmunity: {'Electric': true},
 		secondary: {
 			chance: 30,
 			status: 'par',

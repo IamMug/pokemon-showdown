@@ -94276,6 +94276,10 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			thousandwaves: ["9M"],
 			transform: ["9M"],
 			triplearrows: ["9M"],
+			rest: ["9M"],
+			tailwhip: ["9M"],
+			poisonsting: ["9M"],
+			coil: ["9M"],
 		},
 	},	
 	clayrora: {
