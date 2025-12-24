@@ -3575,15 +3575,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 5,
 		num: 74,
     },
-	remedialooze: {
-		onFoeSwitchOut(pokemon) {
-			pokemon.heal(pokemon.baseMaxhp / 4);
-		},
-		flags: {},
-		name: "Remedial Ooze",
-		rating: 4.5,
-		num: 1424,
-	},	
+   remedialooze: {
+        onAnySwitchOut(switchedPokemon) {
+            const holder = this.effectState?.target;
+            if (!holder || !holder.hp || switchedPokemon.side === holder.side) return;
+            const amount = Math.floor(holder.baseMaxhp / 4);
+            if (this.heal(amount, holder)) {
+                this.add('-activate', holder, 'ability: Remedial Ooze');
+            }
+        },
+        flags: {},
+        name: "Remedial Ooze",
+        rating: 3,
+        num: 2011,
+    },
 	heroic: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
