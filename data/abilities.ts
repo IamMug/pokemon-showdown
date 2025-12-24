@@ -1278,22 +1278,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: 111,
 	},
-	finalstand: { // no idea if this works i hope it does! code cobbled together from berserk and battle bond -rex
-		onAfterMoveSecondary(target, source, move) {
-			if (source.abilityState.finalStandTriggered) return;
-			if (!source || source === target || !target.hp || !move.totalDamage) return;
-			const lastAttackedBy = target.getLastAttackedBy();
-			if (!lastAttackedBy) return;
-			const damage = move.multihit && !move.smartTarget ? move.totalDamage : lastAttackedBy.damage;
-			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3) {
-				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, target, target);
-				this.add('-activate', source, 'ability: Final Stand');
-				source.abilityState.finalStandTriggered = true;
-			}
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Final Stand",
-	},
 	flamebody: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
@@ -1927,7 +1911,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	icebody: {
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail' || effect.id === 'snow') {
-				this.heal(target.baseMaxhp / 16);
+				this.heal(target.baseMaxhp / 8);
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -3261,23 +3245,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 0,
 		num: 57,
 	},
-	psychosis: {
-		onModifySpAPriority: 5,
-		onModifySpA(spatk) {
-			return this.chainModify(1.1);
-		},
-		onModifyMovePriority: -5,
-		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Psychic'] = true;
-			}
-		},	
-		flags: {},
-		name: "Psychosis",
-		rating: 5,
-		num: 1074,
-	},
 	poisonheal: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
@@ -3575,30 +3542,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 5,
 		num: 74,
     },
-   remedialooze: {
-        onAnySwitchOut(switchedPokemon) {
-            const holder = this.effectState?.target;
-            if (!holder || !holder.hp || switchedPokemon.side === holder.side) return;
-            const amount = Math.floor(holder.baseMaxhp / 4);
-            if (this.heal(amount, holder)) {
-                this.add('-activate', holder, 'ability: Remedial Ooze');
-            }
-        },
-        flags: {},
-        name: "Remedial Ooze",
-        rating: 3,
-        num: 2011,
-    },
-	heroic: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk) {
-			return this.chainModify(1.25);
-		},
-		flags: {},
-		name: "Heroic",
-		rating: 4,
-		num: 1074,
-	},
 	purifyingsalt: {
 		onSetStatus(status, target, source, effect) {
 			if ((effect as Move)?.status) {
@@ -4637,25 +4580,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: 114,
 	},
-	striker: {
-		name: "Striker",
-		onBasePowerPriority: 8,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags.kick) {
-				this.debug('Striker boost');
-				return this.chainModify([4915, 4096]);
-			}
-		},
-		onAnyAccuracy(accuracy, target, source, move) {
-			if (move.flags.kick) {
-				this.debug('Striker - ensuring perfect accuracy');
-				return true;
-			}
-			return accuracy;
-		},
-		rating: 3,
-		num: 1089,
-	},
 	strongjaw: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
@@ -5048,26 +4972,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3.5,
 		num: 47,
 	},
-	blubberguard: {
-		onSourceModifyAtkPriority: 6,
-		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Fighting' || move.type === 'Electric') {
-				this.debug('Thick Fat weaken');
-				return this.chainModify(0.5);
-			}
-		},
-		onSourceModifySpAPriority: 5,
-		onSourceModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Fighting' || move.type === 'Electric') {
-				this.debug('Thick Fat weaken');
-				return this.chainModify(0.5);
-			}
-		},
-		flags: {breakable: 1},
-		name: "Blubber Guard",
-		rating: 3.5,
-		num: 2247,
-	},
 	tintedlens: {
 		onModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod < 0) {
@@ -5425,20 +5329,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3.5,
 		num: 11,
 	},
-	flycatcher: {
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Bug') {
-				if (!this.boost({atk: 1})) {
-					this.add('-immune', target, '[from] ability: Flycatcher');
-				}
-				return null;
-			}
-		},
-		flags: {breakable: 1},
-		name: "Flycatcher",
-		rating: 3.5,
-		num: 1011,
-	},	
 	waterbubble: {
 		onSourceModifyAtkPriority: 5,
 		onSourceModifyAtk(atk, attacker, defender, move) {
@@ -5768,5 +5658,117 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Persistent",
 		rating: 3,
 		num: -4,
+	},
+
+	// Project S
+	blubberguard: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Electric') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Electric') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Blubber Guard",
+		rating: 3.5,
+		num: 2247,
+	},
+	finalstand: { // no idea if this works i hope it does! code cobbled together from berserk and battle bond -rex
+		onAfterMoveSecondary(target, source, move) {
+			if (source.abilityState.finalStandTriggered) return;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit && !move.smartTarget ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3) {
+				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, target, target);
+				this.add('-activate', source, 'ability: Final Stand');
+				source.abilityState.finalStandTriggered = true;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Final Stand",
+	},
+	flycatcher: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Bug') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Flycatcher');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Flycatcher",
+		rating: 3.5,
+		num: 1011,
+	},	
+	heroic: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.chainModify(1.25);
+		},
+		flags: {},
+		name: "Heroic",
+		rating: 4,
+		num: 1074,
+	},
+	psychosis: {
+		onModifySpAPriority: 5,
+		onModifySpA(spatk) {
+			return this.chainModify(1.1);
+		},
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Psychic'] = true;
+			}
+		},	
+		flags: {},
+		name: "Psychosis",
+		rating: 5,
+		num: 1074,
+	},
+	remedialooze: {
+        onAnySwitchOut(switchedPokemon) {
+            const holder = this.effectState?.target;
+            if (!holder || !holder.hp || switchedPokemon.side === holder.side) return;
+            const amount = Math.floor(holder.baseMaxhp / 4);
+            if (this.heal(amount, holder)) {
+                this.add('-activate', holder, 'ability: Remedial Ooze');
+            }
+        },
+        flags: {},
+        name: "Remedial Ooze",
+        rating: 3,
+        num: 2011,
+    },
+	striker: {
+		name: "Striker",
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags.kick) {
+				this.debug('Striker boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move.flags.kick) {
+				this.debug('Striker - ensuring perfect accuracy');
+				return true;
+			}
+			return accuracy;
+		},
+		rating: 3,
+		num: 1089,
 	},
 };

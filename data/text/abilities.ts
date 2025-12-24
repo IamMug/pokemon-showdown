@@ -186,11 +186,6 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 			shortDesc: "At 1/3 or less of its max HP, this Pokemon's Fire-type attacks have 1.5x power.",
 		},
 	},
-	blubberguard: {
-		name: "Blubber Guard",
-		desc: "If a Pokemon uses a Fighting- or Electric-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
-		shortDesc: "This Pokemon takes halved damage from Electric-/Fighting-type moves.",
-	},
 	bulletproof: {
 		name: "Bulletproof",
 		shortDesc: "This Pokemon is immune to bullet moves.",
@@ -481,12 +476,6 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Filter",
 		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
 	},
-	finalstand: {
-		name: "Final Stand",
-		desc: "If this Pokemon's HP falls below 1/3rd of its maximum HP, its Attack, Defense, Special Attack, Special Defense, and Speed are boosted by 1 stage. This effect can only happen once per battle.",
-		shortDesc: "If this Pokemon's HP falls below 1/3, boosts all stats by 1. Once per battle.",
-		activate: "  [POKEMON] is fiercely making its last stand!",
-	},
 	flamebody: {
 		name: "Flame Body",
 		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be burned.",
@@ -595,8 +584,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	gluttony: {
 		name: "Gluttony",
-		desc: "When this Pokemon is holding a Berry that usually activates with 1/4 or less of its maximum HP, it is eaten at 1/2 or less of its maximum HP instead.",
-		shortDesc: "This Pokemon eats Berries at 1/2 max HP or less instead of their usual 1/4 max HP.",
+		desc: "When this Pokemon is holding a Berry that usually activates with 1/2 or less of its maximum HP, it is eaten at 2/3 or less of its maximum HP instead.",
+		shortDesc: "This Pokemon eats Berries at 2/3 max HP or less instead of their usual max HP.",
 	},
 	goodasgold: {
 		name: "Good as Gold",
@@ -672,10 +661,6 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "This Pokemon's weight is doubled. This effect is calculated after the effect of Autotomize, and before the effect of Float Stone.",
 		shortDesc: "This Pokemon's weight is doubled.",
 	},
-	heroic: {
-		name: "Heroic",
-		shortDesc: "This Pokemon's Attack is 25% higher.",
-	},
 	honeygather: {
 		name: "Honey Gather",
 		shortDesc: "No competitive use.",
@@ -714,8 +699,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	icebody: {
 		name: "Ice Body",
-		desc: "If Snow is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn.",
-		shortDesc: "If Snow is active, this Pokemon heals 1/16 of its max HP each turn.",
+		desc: "If Snow is active, this Pokemon restores 1/8 of its maximum HP, rounded down, at the end of each turn.",
+		shortDesc: "If Snow is active, this Pokemon heals 1/8 of its max HP each turn.",
 		gen8: {
 			desc: "If Hail is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon takes no damage from Hail.",
 			shortDesc: "If Hail is active, this Pokemon heals 1/16 of its max HP each turn; immunity to Hail.",
@@ -1382,10 +1367,6 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Psychic Surge",
 		shortDesc: "On switch-in, this Pokemon summons Psychic Terrain.",
 	},
-	psychosis: {
-		name: "Psychosis",
-		shortDesc: "Psychic moves can hit Dark-types. Sp. Atk boosted by 1.1x.",
-	},
 	punkrock: {
 		name: "Punk Rock",
 		desc: "This Pokemon's sound-based moves have their power multiplied by 1.3. This Pokemon takes halved damage from sound-based moves.",
@@ -1476,10 +1457,6 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Regenerator",
 		shortDesc: "This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out.",
 	},
-	remedialooze: {
-		name: "Remedial Ooze",
-		shortDesc: "This Pokemon restores 1/4 of its maximum HP, rounded down, when foe switches out.",
-	},	
 	ripen: {
 		name: "Ripen",
 		desc: "When this Pokemon eats certain Berries, the effects are doubled. Berries that restore HP or PP have the amount doubled, Berries that raise stat stages have the amount doubled, Berries that halve damage taken quarter it instead, and a Jaboca Berry or Rowap Berry has the attacker lose 1/4 of its maximum HP, rounded down.",
@@ -1832,11 +1809,6 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		},
 
 		activate: "#lightningrod",
-	},
-	striker: {
-		name: "Striker",
-		desc: "This Pokemon's kick-based attacks have their power multiplied by 1.2 and ignore accuracy checks.",
-		shortDesc: "This Pokemon's kick-based attacks have 1.2x power and cannot miss.",
 	},
 	strongjaw: {
 		name: "Strong Jaw",
@@ -2277,5 +2249,40 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		shortDesc: "When used, Gravity/Heal Block/Safeguard/Tailwind/Room effects last 2 more turns.",
 
 		activate: "  [POKEMON] extends [MOVE] by 2 turns!",
+	},
+
+	// Project S
+	blubberguard: {
+		name: "Blubber Guard",
+		desc: "If a Pokemon uses a Fighting- or Electric-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
+		shortDesc: "This Pokemon takes halved damage from Electric-/Fighting-type moves.",
+	},
+	finalstand: {
+		name: "Final Stand",
+		desc: "If this Pokemon's HP falls below 1/3rd of its maximum HP, its Attack, Defense, Special Attack, Special Defense, and Speed are boosted by 1 stage. This effect can only happen once per battle.",
+		shortDesc: "This Pokemon's stats are raised by 1 when it reaches 1/3 or less of its max HP.",
+		activate: "  [POKEMON] is fiercely making its last stand!",
+	},
+	flycatcher: {
+		name: "Flycatcher",
+		desc: "This Pokemon is immune to Bug-type moves and raises its Attack by 1 stage when hit by a Bug-type move.",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Bug move; Bug immunity.",
+	},
+	heroic: {
+		name: "Heroic",
+		shortDesc: "This Pokemon's Attack stat is boosted by 1.25x.",
+	},
+	psychosis: {
+		name: "Psychosis",
+		shortDesc: "This Pokemon's Psychic moves can hit Dark-types and its Sp. Atk is boosted by 1.1x.",
+	},
+	remedialooze: {
+		name: "Remedial Ooze",
+		shortDesc: "This Pokemon restores 1/4 of its maximum HP, rounded down, when foe switches out.",
+	},	
+	striker: {
+		name: "Striker",
+		desc: "This Pokemon's kick-based attacks have their power multiplied by 1.2 and ignore accuracy checks.",
+		shortDesc: "This Pokemon's kick-based attacks have 1.2x power and cannot miss.",
 	},
 };

@@ -2915,7 +2915,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		category: "Status",
 		name: "Conversion 2",
 		pp: 30,
-		priority: 0,
+		priority: 2,
 		flags: {bypasssub: 1, metronome: 1},
 		onHit(target, source) {
 			if (!target.lastMoveUsed) {
@@ -11213,7 +11213,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	magmastorm: {
 		num: 463,
-		accuracy: 95,
+		accuracy: 75,
 		basePower: 100,
 		category: "Special",
 		name: "Magma Storm",
@@ -20654,7 +20654,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		category: "Status",
 		name: "Transform",
 		pp: 10,
-		priority: 0,
+		priority: 3,
 		flags: {allyanim: 1, failencore: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
 		onHit(target, pokemon) {
 			if (!pokemon.transformInto(target)) {
