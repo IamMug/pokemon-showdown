@@ -3868,7 +3868,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
 			return move.basePower;
 		},
-		category: "Special",
+		category: "Physical",
 		name: "Dire Claw",
 		pp: 15,
 		priority: 0,
