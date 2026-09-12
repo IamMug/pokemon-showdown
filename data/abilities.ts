@@ -3143,6 +3143,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 			return false;
 		},
+				onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
 		flags: {breakable: 1},
 		name: "Pastel Veil",
 		rating: 2,

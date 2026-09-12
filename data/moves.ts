@@ -9205,7 +9205,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	highhorsepower: {
 		num: 667,
 		accuracy: 95,
-		basePower: 95,
+		basePower: 100,
 		category: "Physical",
 		name: "High Horsepower",
 		pp: 10,
