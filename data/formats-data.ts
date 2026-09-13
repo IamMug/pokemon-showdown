@@ -1,5 +1,23 @@
 export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable = {
-		ramnarok: {
+		greninjabond: {
+		tier: "Illegal",
+	},
+	meowsticf: {
+		tier: "Illegal",
+	},
+	magearnaoriginal: {
+		tier: "Illegal",
+	},
+	toxtricitylowkey: {
+		tier: "Illegal",
+	},
+	tatsugiridroopy: {
+		tier: "Illegal",
+	},
+	tatsugiristretchy: {
+		tier: "Illegal",
+	},	
+	ramnarok: {
 		tier: "Illegal",
 	},
 	ramnarokradiant: {
