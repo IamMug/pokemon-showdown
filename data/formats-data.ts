@@ -1,4 +1,10 @@
 export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable = {
+		ramnarok: {
+		tier: "Illegal",
+	},
+	ramnarokradiant: {
+		tier: "Illegal",
+	},
 	bulbasaur: {
 		tier: "LC",
 	},
