@@ -1,4 +1,34 @@
 export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable = {
+		meowsticm: {
+		tier: "Illegal",
+	},
+	tatsugiricurly: {
+		tier: "Illegal",
+	},	
+	greninjabond: {
+		tier: "Illegal",
+	},
+	meowsticf: {
+		tier: "Illegal",
+	},
+	magearnaoriginal: {
+		tier: "Illegal",
+	},
+	toxtricitylowkey: {
+		tier: "Illegal",
+	},
+	tatsugiridroopy: {
+		tier: "Illegal",
+	},
+	tatsugiristretchy: {
+		tier: "Illegal",
+	},	
+	ramnarok: {
+		tier: "Illegal",
+	},
+	ramnarokradiant: {
+		tier: "Illegal",
+	},
 	bulbasaur: {
 		tier: "LC",
 	},
