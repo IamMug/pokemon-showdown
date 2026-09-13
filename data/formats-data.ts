@@ -1,5 +1,11 @@
 export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable = {
-		greninjabond: {
+		meowsticm: {
+		tier: "Illegal",
+	},
+	tatsugiricurly: {
+		tier: "Illegal",
+	},	
+	greninjabond: {
 		tier: "Illegal",
 	},
 	meowsticf: {
